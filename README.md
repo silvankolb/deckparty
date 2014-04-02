@@ -11,10 +11,11 @@ You can use the standalone version:
 
 ## How-to
 Create a new instance of deckparty with the name of deck (ID).
+Javascript
 ```js
 $().deckparty({	deck : 'mydeck' });
 ```
-
+HTML
 ```html
 <div id="mydeck">  ...  <div>
 ```
