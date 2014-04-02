@@ -22,12 +22,14 @@ $().deckparty({	deck : 'mydeck' });
 <div id="mydeck">  ...  <div>
 ```
 
-
-
 ## API
-### deckparty(deck,anchor)
+### deckparty(deck)
+Set a new `deck` with identifier.
+- `deck` - DIV ID Identifier.
 
-
+### deckparty(anchor)
+Set a anchor to linked this deck.
+- `anchor` - Name of link anchor.
 
 
 
