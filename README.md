@@ -26,11 +26,27 @@ $().deckparty({	deck : 'mydeck' });
 ### deckparty(deck)
 Set a new `deck` with identifier.
 - `deck` - DIV ID Identifier.
+```js
+$().deckparty({	deck : 'mydeck' });
+```
 
 ### deckparty(anchor)
 Set a anchor to linked this deck.
 - `anchor` - Name of link anchor.
+```js
+$().deckparty({	anchor : 'anchorMyDeck' });
+```
 
+### deckparty(dtr)
+Get a deck to focus, the deck can be supplied with data. The routing decides where the data come.
+- `dtr` - data transfer.
+- - `-` - no data transfer
+- - `0` - data online from server (JSON)
+- - `1` - data offline from LocaleStorage 
+
+```js
+$().deckparty({	anchor : 'anchorMyDeck' });
+```
 
 
 
