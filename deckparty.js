@@ -38,30 +38,15 @@
 			$.fn.deckparty.init(settings);
 		}); 
 		}
-		if(settings.touch===false){
-			$("."+settings.anchor).bind('click', function(){
-
-			var classNames = this.className.split(' ');
-
-			if(classNames[0]=='anchorLang'){
-				 $.fn.deckparty.setLocaleStorage('dp-lang',classNames[1]);
-			}
-
-			settings.dataHash = $(this).data('id');
-			$.fn.deckparty.setLocaleStorage('deckPosting-dataHash',settings.dataHash);
-						
-			$.fn.deckparty.init(settings);
-		}); 
-		}
 	
-	    $("#"+settings.fieldEnter).keydown(function(e) {
+	    	$("#"+settings.fieldEnter).keydown(function(e) {
 		    if ( e.which == 13 ) {
 				e.preventDefault();
 				$("#"+settings.deck+' .dp-btn-form').click();
 			}
-    	});
+    		});
 
-		$("#"+settings.deck+' .dp-btn-form').bind('touchstart click', function(){
+		$("#"+settings.deck+' .dp-btn-form').bind('touchstart', function(){
 
 			if($.fn.deckparty.isOnline())
 			{		 
