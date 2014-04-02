@@ -40,9 +40,9 @@ $().deckparty({	anchor : 'anchorMyDeck' });
 ### deckparty(dtr)
 Get a deck to focus, the deck can be supplied with data. The routing decides where the data come.
 - `dtr` - data transfer.
-  - `-` no data transfer (default)
-  - `0` data online from server (JSON) 
-  - `1` data offline from LocaleStorage (key,value) 
+  - `-`  data offline from LocaleStorage (key,value) (default)
+  - `0`  data online from server (JSON) 
+  - `>0` data online in (n) minutes ( dtr: '5' - all 5 min. online data transfer )
 
 ```js
 $().deckparty({	dtr : '0' });
@@ -60,6 +60,15 @@ $().deckparty({	fields : ['data-field-1','data-field-2']  });
 <div class="data-field-1"> ... </div>
 <span class="data-field-2"> ... </span>
 ```
+
+### deckparty(polling,polltime)
+A deck can be data polling 
+- `polling`  - (boolean) true|false
+- `polltime` - (int)     millisecond
+
+### deckparty(url)
+URL of the server from which to retrieve data
+- `url` - deck supported CORS Domains
 
 
 
