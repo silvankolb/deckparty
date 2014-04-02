@@ -23,6 +23,7 @@ $().deckparty({	deck : 'mydeck' });
 ```
 
 
+
 ## API
 ### deckparty(deck,anchor)
 
@@ -31,8 +32,29 @@ $().deckparty({	deck : 'mydeck' });
 
 
 
+## Sample with two decks and linking
 
+```js
+// JAVASCRIPT
+$().deckparty({	
+                deck   : 'mydeck1',
+                anchor : 'anchorMyDeck1',
+              });
+$().deckparty({	
+                deck   : 'mydeck2',
+                anchor : 'anchorMyDeck2',
+              });
+```
 
+```js
+// HTML
+<div id="mydeck1">  
+  <div class="anchorMyDeck2"> Link to mydeck2 </div>
+<div>
+<div id="mydeck2">  
+  <div class="anchorMyDeck1"> Link to mydeck1 </div>
+<div>
+```
 
 ## Maintained by
 - Silvan Kolb (Web-App developer | app design lover)
