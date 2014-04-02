@@ -1,12 +1,10 @@
-deckparty
-=========
+# deckparty JS
 
 A JQuery plugin to manage decks for HTML5 apps
 
 
-Standalone
-==========
-
+### Standalone
 You can use the standalone version:
-
-<script src="deckparty.js"></script>
+```html
+<script src="deckparty.js"></script
+```
