@@ -10,7 +10,7 @@ You can use the standalone version:
 ```
 
 ## How-to
-Create a new instance of Voix.
+Create a new instance of deckparty.
 ```js
 $().deckparty({	deck : 'mydeck' });
 ```
