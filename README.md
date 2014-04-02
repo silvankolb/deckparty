@@ -18,6 +18,7 @@ $().deckparty({	deck : 'mydeck' });
 ```
 
 ```html
+HTML
 <div id="mydeck">  ...  <div>
 ```
 
