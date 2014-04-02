@@ -83,8 +83,8 @@
 		 }	
 		}
 
-		var url   		= settings.seturl;
-		var param 		= settings.deck;		
+		var url   	= settings.seturl;
+		var param 	= settings.deck;		
 		var urlParam    = '';	
 		var params      = '&'+daten;	
 
@@ -137,8 +137,8 @@
 	*/
 	$.fn.deckparty.server = function( settings ) {
 
-		var url   		= settings.url;
-		var param 		= settings.deck;
+		var url   	= settings.url;
+		var param 	= settings.deck;
 		var dataHash 	= '&dataHash='+settings.dataHash; 
 		
 		var urlParam 	= url + param + dataHash;	
@@ -629,14 +629,14 @@
 	    myTransition: false,
 	    init        : true,
 	    xLoaderPoll : false,
-		scrollBottom: false,	    
-		setUpdate   : false,
-		onSetLocale : true,
-		fieldEnter  : '',
-		dataHash    : '',
-		lang        : 'en',
-		touch       : false,
-		setHtml     : true,
+	    scrollBottom: false,	    
+	    setUpdate   : false,
+	    onSetLocale : true,
+	    fieldEnter  : '',
+	    dataHash    : '',
+	    lang        : 'en',
+	    touch       : false,
+	    setHtml     : true,
 	};
 
 }( jQuery ));
