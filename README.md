@@ -13,12 +13,12 @@ You can use the standalone version:
 Create a new instance of deckparty with the name of deck (ID).
 
 ```js
-JAVASCRIPT
+// JAVASCRIPT
 $().deckparty({	deck : 'mydeck' });
 ```
 
 ```html
-HTML
+// HTML
 <div id="mydeck">  ...  <div>
 ```
 
