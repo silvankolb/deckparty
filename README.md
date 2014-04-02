@@ -17,7 +17,7 @@ Create a new instance of deckparty with the name of deck (ID).
 $().deckparty({	deck : 'mydeck' });
 ```
 
-```html
+```js
 // HTML
 <div id="mydeck">  ...  <div>
 ```
