@@ -40,13 +40,27 @@ $().deckparty({	anchor : 'anchorMyDeck' });
 ### deckparty(dtr)
 Get a deck to focus, the deck can be supplied with data. The routing decides where the data come.
 - `dtr` - data transfer.
-- - `-` - no data transfer
-- - `0` - data online from server (JSON)
-- - `1` - data offline from LocaleStorage 
+  - `-` no data transfer (default)
+  - `0` data online from server (JSON) 
+  - `1` data offline from LocaleStorage (key,value) 
 
 ```js
-$().deckparty({	anchor : 'anchorMyDeck' });
+$().deckparty({	dtr : '0' });
 ```
+
+### deckparty(fields)
+fields to be updated of data transfer (see dtr)
+- `fields` - array of fields, comma separated.
+
+```js
+$().deckparty({	fields : ['data-field-1','data-field-2']  });
+```
+
+```js
+<div class="data-field-1"> ... </div>
+<span class="data-field-2"> ... </span>
+```
+
 
 
 
