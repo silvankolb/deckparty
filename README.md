@@ -68,9 +68,7 @@ A deck can be data polling
 
 ### deckparty(url)
 URL of the server from which to retrieve data
-- `url` - deck supported CORS Domains
-
-
+- `url` - deckparty supported CORS Domains
 
 
 ## Sample with two decks and linking
