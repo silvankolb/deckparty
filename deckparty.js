@@ -24,7 +24,7 @@
 		$.fn.deckparty.init(settings);
 
 		if(settings.touch===true){
-			$("."+settings.anchor).bind('touchstart', function(){
+			$("."+settings.anchor).bind('touchstart click', function(){
 
 			var classNames = this.className.split(' ');
 
@@ -64,7 +64,7 @@
 	/**
 	* Send a form from deck to server
 	* @function 	    
-	* @params {settings}- Options 
+	* @params {settings}    - Options 
 	* @params {String} 	- POST or GET
 	* @set 	  {server} 	- LocaleStorage & HTML
 	* @return {server} 	- Response from ajax
@@ -90,7 +90,7 @@
 
 		var xMethod = '';
 		if(method == 'dp-x-post') { xMethod = 'POST'; urlParam = url + param; } else
-		if(method == 'dp-x-get')  {	xMethod = 'GET';  urlParam = url + param + '&' + daten; }
+		if(method == 'dp-x-get')  { xMethod = 'GET';  urlParam = url + param + '&' + daten; }
 
 		var request = $.fn.deckparty.createCORSRequest(xMethod,urlParam);
 		
@@ -140,7 +140,6 @@
 		var url   	= settings.url;
 		var param 	= settings.deck;
 		var dataHash 	= '&dataHash='+settings.dataHash; 
-		
 		var urlParam 	= url + param + dataHash;	
 		
 		var request = $.fn.deckparty.createCORSRequest("get",urlParam);
