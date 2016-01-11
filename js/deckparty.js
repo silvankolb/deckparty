@@ -20,23 +20,23 @@
     */
     $.fn.deckparty = function( options ) {
 
-	      var settings = $.extend({}, $.fn.deckparty.defaults, options);
+	var settings = $.extend({}, $.fn.deckparty.defaults, options);
         var deckHTML = '';
 		
-	      /**
-	      * INIT
-	      */
+	/**
+	* INIT
+        */
         $.fn.deckparty.init(settings);
 
         /**
-	      * Event handler
-	      */ 		 
+	* Event handler
+        */ 		 
         var clickEventType =((document.ontouchstart!==null)?'click':'touchstart');	
 
         /**
-	      * clickEventType
+	* clickEventType
         * action of click or touch event
-	      */ 
+	*/ 
         $("."+settings.anchor).live(clickEventType, function(){
 
 			  var classNames = this.className.split(' ');
@@ -56,7 +56,7 @@
 				e.preventDefault();
 				$("#"+settings.deck+' .dp-btn-form').click();
 			}
-  	});
+  		});
 
 		$("#"+settings.deck+' .dp-btn-form').bind('touchstart click', function(){
 
@@ -80,7 +80,7 @@
 	* @set 	  {server} 	- LocaleStorage & HTML
 	* @return {server} 	- Response from ajax
 	*/
-  $.fn.deckparty.setXRequest = function( settings, method ) {
+  	$.fn.deckparty.setXRequest = function( settings, method ) {
 
 		var daten = $("#"+settings.deck+'Form').serialize();
 
@@ -146,7 +146,7 @@
 	* @function 	    
 	* @params {settings}- Options 
 	*/
-  $.fn.deckparty.server = function( settings ) {
+  	$.fn.deckparty.server = function( settings ) {
 
 		var url   		= settings.url;
 		var param 		= settings.deck;
@@ -188,7 +188,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.load = function( settings ) {
+  	$.fn.deckparty.load = function( settings ) {
 
 		var urlParam = settings.template;	
 		
@@ -217,7 +217,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.locale = function( settings ) {
+	 $.fn.deckparty.locale = function( settings ) {
 
 		for(var i = 0; i < settings.fields.length; i++) {
 			var content = $.fn.deckparty.getLocaleStorage(settings.deck+'-'+settings.fields[i]);
@@ -235,7 +235,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.translate = function( settings ) {
+  	$.fn.deckparty.translate = function( settings ) {
 
 		settings.lang = $.fn.deckparty.getLanguage(settings);
 
@@ -259,7 +259,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.router = function( settings ) {
+	 $.fn.deckparty.router = function( settings ) {
 
 		var cid  = settings.deck;
 		var rule = settings.dtr; 
@@ -294,7 +294,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.init = function( settings ) {
+	$.fn.deckparty.init = function( settings ) {
 
 		if( $.fn.deckparty.isNotInit(settings))
 		  $.fn.deckparty.hide(settings);
@@ -303,7 +303,7 @@
 
 		$.fn.deckparty.router(settings);
 		
-        if($.fn.deckparty.isOnline() && settings.dus===0){
+        	if($.fn.deckparty.isOnline() && settings.dus===0){
 
 			if($.fn.deckparty.isNotInit(settings)){	
 			 	settings.onCreate.call(); 
@@ -324,7 +324,7 @@
 				settings.pollstat = true;
 			}	 
 		} else
-        if($.fn.deckparty.isLocaleStorage() && settings.dus===1){
+        	if($.fn.deckparty.isLocaleStorage() && settings.dus===1){
 	    	$.fn.deckparty.locale(settings); 
 
 			if(settings.polling && settings.pollstat===false){
@@ -342,9 +342,9 @@
 
 		$.fn.deckparty.scrollBottom(settings);
 
-        if(settings.loadStat === 0 && settings.template != ''){
-            $.fn.deckparty.load(settings);
-        }
+        	if(settings.loadStat === 0 && settings.template != ''){
+        	 $.fn.deckparty.load(settings);
+	 	}
 	 	return this;
 	};
 
@@ -374,7 +374,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.show = function( settings ) {
+	 $.fn.deckparty.show = function( settings ) {
 	 if(settings.myTransition===true){
 	 	settings.onShow.call(settings.deck);
 	 	return this;
@@ -391,7 +391,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.findActDeck = function(settings) {
+	 $.fn.deckparty.findActDeck = function(settings) {
 	 	var opaID = '';
 	    $('.'+settings.deckcss).each( function() {
 			var opa = $(this).css('display');
@@ -418,7 +418,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.setInitFlag = function( settings ) {
+	 $.fn.deckparty.setInitFlag = function( settings ) {
 		return settings.init = false;
   	};
 
@@ -448,7 +448,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-  $.fn.deckparty.isView = function( settings ) {
+  	$.fn.deckparty.isView = function( settings ) {
 		return ($('#'+settings.deck).attr('display')=='display') ? true : false;
   	};
 
@@ -458,7 +458,7 @@
 	* @private
 	* @params {event} 
 	*/
-  $.fn.deckparty.isOnline = function(event) {
+	 $.fn.deckparty.isOnline = function(event) {
 		return navigator.onLine ? true : false;
   	};
 
@@ -468,7 +468,7 @@
 	* @private
 	* @params {event} 
 	*/
-  $.fn.deckparty.isLocaleStorage = function() {
+	 $.fn.deckparty.isLocaleStorage = function() {
 		return (typeof(Storage)!=="undefined") ? true : false;
   	};
 	
@@ -532,12 +532,12 @@
 	* @private
 	* @params {list of options} - settings
 	*/
-  $.fn.deckparty.scrollBottom = function( settings ) {
-	  if(settings.scrollBottom){
-	    	$('#'+settings.deck+' .scrollBottom').scrollTop(99999);
-	  }	else
-	  return false;
-  };
+	 $.fn.deckparty.scrollBottom = function( settings ) {
+	  	if(settings.scrollBottom){
+		 	$('#'+settings.deck+' .scrollBottom').scrollTop(99999);
+		 }	else
+		 return false;
+  	};
 
 	/**
 	* Set data to LocaleStorage
@@ -546,7 +546,7 @@
 	* @params {String} - key
 	* @params {String} - value
 	*/
-  $.fn.deckparty.setLocaleStorage = function(key,value) {
+  	$.fn.deckparty.setLocaleStorage = function(key,value) {
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	        try {
 				localStorage.setItem(key,value);  
@@ -564,13 +564,13 @@
 	* @params  {String} - key
 	* @returns {String} - value
 	*/
-  $.fn.deckparty.getLocaleStorage = function(key) {
+	 $.fn.deckparty.getLocaleStorage = function(key) {
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	         return localStorage.getItem(key);  
 	    } else {return false;}
 	};
 
-  /**
+  	/**
 	* set template to body
 	* @function 	    
 	* @private
@@ -602,7 +602,7 @@
 	* @params {String} - name of class 
 	* @params {String} - name of classes
 	*/
-  $.fn.deckparty.isClass = function(nameOfClass,classNames) {
+  	$.fn.deckparty.isClass = function(nameOfClass,classNames) {
 		$.each( classNames, function( key, value ) {
 			if(nameOfClass === value) return true;
 		});
@@ -614,7 +614,7 @@
 	* @private
 	* @params  {list of String} - settings
 	*/
-  $.fn.deckparty.getLanguage = function(settings) {		
+	 $.fn.deckparty.getLanguage = function(settings) {		
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	     //    return localStorage.getItem('dp-lang');  
 	    }
@@ -627,7 +627,7 @@
 	* @private
 	* @params  {String} - name of class
 	*/
-  $.fn.deckparty.getFieldOfClass = function(classNames) {
+	 $.fn.deckparty.getFieldOfClass = function(classNames) {
 		var cl;
 		var fields = [];
 		$.each( classNames, function( key, value ) {
