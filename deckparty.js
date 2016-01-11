@@ -20,23 +20,23 @@
     */
     $.fn.deckparty = function( options ) {
 
-		var settings = $.extend({}, $.fn.deckparty.defaults, options);
+	var settings = $.extend({}, $.fn.deckparty.defaults, options);
         var deckHTML = '';
 		
-		/**
-	    * INIT
-	    */
+	/**
+	* INIT
+	*/
         $.fn.deckparty.init(settings);
 
         /**
-	    * Event handler
-	    */ 		 
-	    var clickEventType =((document.ontouchstart!==null)?'click':'touchstart');	
+	* Event handler
+	*/ 		 
+        var clickEventType =((document.ontouchstart!==null)?'click':'touchstart');	
 
         /**
-	    * clickEventType
+	* clickEventType
         * action of click or touch event
-	    */ 
+	*/ 
         $("."+settings.anchor).live(clickEventType, function(){
 
 			var classNames = this.className.split(' ');
@@ -51,12 +51,12 @@
 			$.fn.deckparty.init(settings);
 		}); 
 
-	    $("#"+settings.fieldEnter).keydown(function(e) {
+	    	$("#"+settings.fieldEnter).keydown(function(e) {
 		    if ( e.which == 13 ) {
 				e.preventDefault();
 				$("#"+settings.deck+' .dp-btn-form').click();
 			}
-    	});
+    		});
 
 		$("#"+settings.deck+' .dp-btn-form').bind('touchstart click', function(){
 
@@ -69,7 +69,6 @@
 			} 
 			else settings.onOffline.call();
 		});
-		
 		return this;
 	};
 
@@ -81,7 +80,7 @@
 	* @set 	  {server} 	- LocaleStorage & HTML
 	* @return {server} 	- Response from ajax
 	*/
-    $.fn.deckparty.setXRequest = function( settings, method ) {
+    	$.fn.deckparty.setXRequest = function( settings, method ) {
 
 		var daten = $("#"+settings.deck+'Form').serialize();
 
@@ -131,7 +130,7 @@
 			 	settings.onSetShow.call(); 
 			}
 		  	}		        
-	    };
+		};
 	    
 		//Send the proper header information along with the request
 		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -147,7 +146,7 @@
 	* @function 	    
 	* @params {settings}- Options 
 	*/
-    $.fn.deckparty.server = function( settings ) {
+    	$.fn.deckparty.server = function( settings ) {
 
 		var url   		= settings.url;
 		var param 		= settings.deck;
@@ -189,7 +188,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.load = function( settings ) {
+    	$.fn.deckparty.load = function( settings ) {
 
 		var urlParam = settings.template;	
 		
@@ -218,7 +217,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.locale = function( settings ) {
+    	$.fn.deckparty.locale = function( settings ) {
 
 		for(var i = 0; i < settings.fields.length; i++) {
 			var content = $.fn.deckparty.getLocaleStorage(settings.deck+'-'+settings.fields[i]);
@@ -236,7 +235,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.translate = function( settings ) {
+    	$.fn.deckparty.translate = function( settings ) {
 
 		settings.lang = $.fn.deckparty.getLanguage(settings);
 
@@ -260,7 +259,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.router = function( settings ) {
+    	$.fn.deckparty.router = function( settings ) {
 
 		var cid  = settings.deck;
 		var rule = settings.dtr; 
@@ -295,7 +294,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.init = function( settings ) {
+    	$.fn.deckparty.init = function( settings ) {
 
 		if( $.fn.deckparty.isNotInit(settings))
 		  $.fn.deckparty.hide(settings);
@@ -356,21 +355,18 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.hide = function( settings ) {
+    	$.fn.deckparty.hide = function( settings ) {
         
-     var actDeck =  $.fn.deckparty.findActDeck(settings);
+     		var actDeck =  $.fn.deckparty.findActDeck(settings);
         
-	 if(settings.myTransition===true){
-       
-	 	settings.onHide.call(); 
-
-	 	return this;
- 	 }
-	 else { 		
-		$('#'+actDeck).css('display','none');
-      
-	 	return this;
-	 }	
+	 	if(settings.myTransition===true){
+	 		settings.onHide.call(); 
+	 		return this;
+ 	 	}
+	 	else { 		
+			$('#'+actDeck).css('display','none');
+	 		return this;
+	 	}	
 	};
 
 	/**
@@ -379,15 +375,13 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.show = function( settings ) {
+    	$.fn.deckparty.show = function( settings ) {
 	 if(settings.myTransition===true){
-	 	settings.onShow.call(settings.deck); 
-        
+	 	settings.onShow.call(settings.deck);
 	 	return this;
  	 }
 	 else { 	 		 		 
   		$('#'+settings.deck).css('display','block');
-    
 		return this;
 	 }	
 	};
@@ -398,7 +392,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.findActDeck = function(settings) {
+    	$.fn.deckparty.findActDeck = function(settings) {
 	 	var opaID = '';
 	    $('.'+settings.deckcss).each( function() {
 			var opa = $(this).css('display');
@@ -425,7 +419,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.setInitFlag = function( settings ) {
+    	$.fn.deckparty.setInitFlag = function( settings ) {
 		return settings.init = false;
   	};
 
@@ -435,7 +429,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.isNotInit = function( settings ) {
+	 $.fn.deckparty.isNotInit = function( settings ) {
 		return (settings.init == false) ? true : false;
   	};
 
@@ -445,7 +439,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.isXLoaderPoll = function( settings ) {
+	 $.fn.deckparty.isXLoaderPoll = function( settings ) {
 		return settings.xLoaderPoll ? true : false;
   	};
 
@@ -455,7 +449,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    $.fn.deckparty.isView = function( settings ) {
+    	$.fn.deckparty.isView = function( settings ) {
 		return ($('#'+settings.deck).attr('display')=='display') ? true : false;
   	};
 
@@ -465,7 +459,7 @@
 	* @private
 	* @params {event} 
 	*/
-    $.fn.deckparty.isOnline = function(event) {
+    	$.fn.deckparty.isOnline = function(event) {
 		return navigator.onLine ? true : false;
   	};
 
@@ -475,7 +469,7 @@
 	* @private
 	* @params {event} 
 	*/
-    $.fn.deckparty.isLocaleStorage = function() {
+    	$.fn.deckparty.isLocaleStorage = function() {
 		return (typeof(Storage)!=="undefined") ? true : false;
   	};
 	
@@ -486,7 +480,7 @@
 	* @params {method} - POST or GET
 	* @params {url}	   - url for server
 	*/
-    $.fn.deckparty.createCORSRequest = function(method, url){
+	 $.fn.deckparty.createCORSRequest = function(method, url){
 	    var xhr = new XMLHttpRequest();
 	    if ("withCredentials" in xhr){
 	        xhr.open(method, url, true);
@@ -505,7 +499,7 @@
 	* @private
 	* @params {String} - JSON 
 	*/
-    $.fn.deckparty._fnJsonToObject = function(json) {
+    	$.fn.deckparty._fnJsonToObject = function(json) {
 		try	{ var obj = jQuery.parseJSON( json );}
 		catch( e ){ return false; }
 		return obj;
@@ -517,7 +511,7 @@
 	* @private
 	* @params {String} 
 	*/
-    $.fn.deckparty.isEmpty = function(str) {
+	 $.fn.deckparty.isEmpty = function(str) {
 	    return !str || !/[^\s]+/.test(str);
 	};
 
@@ -527,7 +521,7 @@
 	* @private
 	* @return {longint} - Timestamp
 	*/
-    $.fn.deckparty.getTimeStamp = function() {
+	 $.fn.deckparty.getTimeStamp = function() {
 		var today = new Date(); 
 		var timestamp = today.getTime(); 
 		return timestamp;
@@ -539,7 +533,7 @@
 	* @private
 	* @params {list of options} - settings
 	*/
-    $.fn.deckparty.scrollBottom = function( settings ) {
+	 $.fn.deckparty.scrollBottom = function( settings ) {
 	 if(settings.scrollBottom){
 		$('#'+settings.deck+' .scrollBottom').scrollTop(99999);
 	}	else
@@ -553,7 +547,7 @@
 	* @params {String} - key
 	* @params {String} - value
 	*/
-    $.fn.deckparty.setLocaleStorage = function(key,value) {
+    	$.fn.deckparty.setLocaleStorage = function(key,value) {
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	        try {
 				localStorage.setItem(key,value);  
@@ -571,12 +565,12 @@
 	* @params  {String} - key
 	* @returns {String} - value
 	*/
-    $.fn.deckparty.setTemplateToBody = function(settings){       
-       $('body').prepend(deckHTML); 
-        if(settings.landing === 'true'){
-            $.fn.deckparty.show(settings);
-        } else $('#'+settings.deck).css('display','none');
-    };
+    	$.fn.deckparty.setTemplateToBody = function(settings){       
+       		$('body').prepend(deckHTML); 
+		 if(settings.landing === 'true'){
+        		 $.fn.deckparty.show(settings);
+        	} else $('#'+settings.deck).css('display','none');
+    	};
 	
 	/**
 	* Serialize form from deck
@@ -585,7 +579,7 @@
 	* @params  {list of String} - settings
 	* @returns {String} - Daten
 	*/
-    $.fn.deckparty.getLocaleStorage = function(key) {
+    	$.fn.deckparty.getLocaleStorage = function(key) {
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	         return localStorage.getItem(key);  
 	    } else {return false;}
@@ -603,19 +597,19 @@
 	* @params {String} - name of class 
 	* @params {String} - name of classes
 	*/
-    $.fn.deckparty.isClass = function(nameOfClass,classNames) {
+    	$.fn.deckparty.isClass = function(nameOfClass,classNames) {
 		$.each( classNames, function( key, value ) {
 			if(nameOfClass === value) return true;
 		});
 	};
 
-    /**
+    	/**
 	* Get Language
 	* @function 	    
 	* @private
 	* @params  {list of String} - settings
 	*/
-    $.fn.deckparty.getLanguage = function(settings) {		
+    	$.fn.deckparty.getLanguage = function(settings) {		
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	     //    return localStorage.getItem('dp-lang');  
 	    }
@@ -628,7 +622,7 @@
 	* @private
 	* @params  {String} - name of class
 	*/
-    $.fn.deckparty.getFieldOfClass = function(classNames) {
+    	$.fn.deckparty.getFieldOfClass = function(classNames) {
 		var cl;
 		var fields = [];
 		$.each( classNames, function( key, value ) {
@@ -687,18 +681,18 @@
 	    myTransition: false,
 	    init        : true,
 	    xLoaderPoll : false,
-		  scrollBottom: false,	    
-		  setUpdate   : false,
-		  onSetLocale : true,
-	  	fieldEnter  : '',
-		  dataHash    : '',
-		  lang        : 'en',
-      landing     : 'none',
-	  	touch       : false,
-	  	setHtml     : true,
-      template    : '',
-      loadStat    : 0,
-      animation   : false,
+            scrollBottom: false,	    
+            setUpdate   : false,
+            onSetLocale : true,
+	    fieldEnter  : '',
+	    dataHash    : '',
+	    lang        : 'en',
+            landing     : 'none',
+	    touch       : false,
+	    setHtml     : true,
+            template    : '',
+            loadStat    : 0,
+            animation   : false,
 	};
 
 }( jQuery ));
