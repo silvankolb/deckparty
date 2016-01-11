@@ -25,12 +25,12 @@
 		
 	/**
 	* INIT
-	*/
+        */
         $.fn.deckparty.init(settings);
 
         /**
 	* Event handler
-	*/ 		 
+        */ 		 
         var clickEventType =((document.ontouchstart!==null)?'click':'touchstart');	
 
         /**
@@ -39,24 +39,24 @@
 	*/ 
         $("."+settings.anchor).live(clickEventType, function(){
 
-			var classNames = this.className.split(' ');
+			  var classNames = this.className.split(' ');
 
-			if(classNames[0]=='anchorLang'){
-				 $.fn.deckparty.setLocaleStorage('dp-lang',classNames[1]);
-			}
+			   if(classNames[0]=='anchorLang'){
+				     $.fn.deckparty.setLocaleStorage('dp-lang',classNames[1]);
+			   }
 
-			settings.dataHash = $(this).data('id');
-			$.fn.deckparty.setLocaleStorage('deckPosting-dataHash',settings.dataHash);
+			  settings.dataHash = $(this).data('id');
+			  $.fn.deckparty.setLocaleStorage('deckPosting-dataHash',settings.dataHash);
 						
-			$.fn.deckparty.init(settings);
-		}); 
+			  $.fn.deckparty.init(settings);
+		  }); 
 
 	    	$("#"+settings.fieldEnter).keydown(function(e) {
 		    if ( e.which == 13 ) {
 				e.preventDefault();
 				$("#"+settings.deck+' .dp-btn-form').click();
 			}
-    		});
+  		});
 
 		$("#"+settings.deck+' .dp-btn-form').bind('touchstart click', function(){
 
@@ -80,7 +80,7 @@
 	* @set 	  {server} 	- LocaleStorage & HTML
 	* @return {server} 	- Response from ajax
 	*/
-    	$.fn.deckparty.setXRequest = function( settings, method ) {
+  	$.fn.deckparty.setXRequest = function( settings, method ) {
 
 		var daten = $("#"+settings.deck+'Form').serialize();
 
@@ -146,7 +146,7 @@
 	* @function 	    
 	* @params {settings}- Options 
 	*/
-    	$.fn.deckparty.server = function( settings ) {
+  	$.fn.deckparty.server = function( settings ) {
 
 		var url   		= settings.url;
 		var param 		= settings.deck;
@@ -188,7 +188,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.load = function( settings ) {
+  	$.fn.deckparty.load = function( settings ) {
 
 		var urlParam = settings.template;	
 		
@@ -217,7 +217,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.locale = function( settings ) {
+	 $.fn.deckparty.locale = function( settings ) {
 
 		for(var i = 0; i < settings.fields.length; i++) {
 			var content = $.fn.deckparty.getLocaleStorage(settings.deck+'-'+settings.fields[i]);
@@ -235,7 +235,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.translate = function( settings ) {
+  	$.fn.deckparty.translate = function( settings ) {
 
 		settings.lang = $.fn.deckparty.getLanguage(settings);
 
@@ -259,7 +259,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.router = function( settings ) {
+	 $.fn.deckparty.router = function( settings ) {
 
 		var cid  = settings.deck;
 		var rule = settings.dtr; 
@@ -294,7 +294,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.init = function( settings ) {
+	$.fn.deckparty.init = function( settings ) {
 
 		if( $.fn.deckparty.isNotInit(settings))
 		  $.fn.deckparty.hide(settings);
@@ -303,7 +303,7 @@
 
 		$.fn.deckparty.router(settings);
 		
-        if($.fn.deckparty.isOnline() && settings.dus===0){
+        	if($.fn.deckparty.isOnline() && settings.dus===0){
 
 			if($.fn.deckparty.isNotInit(settings)){	
 			 	settings.onCreate.call(); 
@@ -324,7 +324,7 @@
 				settings.pollstat = true;
 			}	 
 		} else
-        if($.fn.deckparty.isLocaleStorage() && settings.dus===1){
+        	if($.fn.deckparty.isLocaleStorage() && settings.dus===1){
 	    	$.fn.deckparty.locale(settings); 
 
 			if(settings.polling && settings.pollstat===false){
@@ -342,10 +342,9 @@
 
 		$.fn.deckparty.scrollBottom(settings);
 
-        if(settings.loadStat === 0 && settings.template != ''){
-            $.fn.deckparty.load(settings);
-        }
-
+        	if(settings.loadStat === 0 && settings.template != ''){
+        	 $.fn.deckparty.load(settings);
+	 	}
 	 	return this;
 	};
 
@@ -355,7 +354,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.hide = function( settings ) {
+	$.fn.deckparty.hide = function( settings ) {
         
      		var actDeck =  $.fn.deckparty.findActDeck(settings);
         
@@ -375,7 +374,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.show = function( settings ) {
+	 $.fn.deckparty.show = function( settings ) {
 	 if(settings.myTransition===true){
 	 	settings.onShow.call(settings.deck);
 	 	return this;
@@ -392,7 +391,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.findActDeck = function(settings) {
+	 $.fn.deckparty.findActDeck = function(settings) {
 	 	var opaID = '';
 	    $('.'+settings.deckcss).each( function() {
 			var opa = $(this).css('display');
@@ -419,7 +418,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.setInitFlag = function( settings ) {
+	 $.fn.deckparty.setInitFlag = function( settings ) {
 		return settings.init = false;
   	};
 
@@ -429,7 +428,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-	 $.fn.deckparty.isNotInit = function( settings ) {
+	$.fn.deckparty.isNotInit = function( settings ) {
 		return (settings.init == false) ? true : false;
   	};
 
@@ -439,7 +438,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-	 $.fn.deckparty.isXLoaderPoll = function( settings ) {
+	$.fn.deckparty.isXLoaderPoll = function( settings ) {
 		return settings.xLoaderPoll ? true : false;
   	};
 
@@ -449,7 +448,7 @@
 	* @private
 	* @params {list of settings} 
 	*/
-    	$.fn.deckparty.isView = function( settings ) {
+  	$.fn.deckparty.isView = function( settings ) {
 		return ($('#'+settings.deck).attr('display')=='display') ? true : false;
   	};
 
@@ -459,7 +458,7 @@
 	* @private
 	* @params {event} 
 	*/
-    	$.fn.deckparty.isOnline = function(event) {
+	 $.fn.deckparty.isOnline = function(event) {
 		return navigator.onLine ? true : false;
   	};
 
@@ -469,7 +468,7 @@
 	* @private
 	* @params {event} 
 	*/
-    	$.fn.deckparty.isLocaleStorage = function() {
+	 $.fn.deckparty.isLocaleStorage = function() {
 		return (typeof(Storage)!=="undefined") ? true : false;
   	};
 	
@@ -480,7 +479,7 @@
 	* @params {method} - POST or GET
 	* @params {url}	   - url for server
 	*/
-	 $.fn.deckparty.createCORSRequest = function(method, url){
+	$.fn.deckparty.createCORSRequest = function(method, url){
 	    var xhr = new XMLHttpRequest();
 	    if ("withCredentials" in xhr){
 	        xhr.open(method, url, true);
@@ -499,7 +498,7 @@
 	* @private
 	* @params {String} - JSON 
 	*/
-    	$.fn.deckparty._fnJsonToObject = function(json) {
+	$.fn.deckparty._fnJsonToObject = function(json) {
 		try	{ var obj = jQuery.parseJSON( json );}
 		catch( e ){ return false; }
 		return obj;
@@ -511,7 +510,7 @@
 	* @private
 	* @params {String} 
 	*/
-	 $.fn.deckparty.isEmpty = function(str) {
+	$.fn.deckparty.isEmpty = function(str) {
 	    return !str || !/[^\s]+/.test(str);
 	};
 
@@ -521,7 +520,7 @@
 	* @private
 	* @return {longint} - Timestamp
 	*/
-	 $.fn.deckparty.getTimeStamp = function() {
+	$.fn.deckparty.getTimeStamp = function() {
 		var today = new Date(); 
 		var timestamp = today.getTime(); 
 		return timestamp;
@@ -534,10 +533,10 @@
 	* @params {list of options} - settings
 	*/
 	 $.fn.deckparty.scrollBottom = function( settings ) {
-	 if(settings.scrollBottom){
-		$('#'+settings.deck+' .scrollBottom').scrollTop(99999);
-	}	else
-	return false;
+	  	if(settings.scrollBottom){
+		 	$('#'+settings.deck+' .scrollBottom').scrollTop(99999);
+		 }	else
+		 return false;
   	};
 
 	/**
@@ -547,7 +546,7 @@
 	* @params {String} - key
 	* @params {String} - value
 	*/
-    	$.fn.deckparty.setLocaleStorage = function(key,value) {
+  	$.fn.deckparty.setLocaleStorage = function(key,value) {
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	        try {
 				localStorage.setItem(key,value);  
@@ -565,13 +564,25 @@
 	* @params  {String} - key
 	* @returns {String} - value
 	*/
-    	$.fn.deckparty.setTemplateToBody = function(settings){       
+	 $.fn.deckparty.getLocaleStorage = function(key) {
+	    if ('localStorage' in window && window['localStorage'] !== null) {
+	         return localStorage.getItem(key);  
+	    } else {return false;}
+	};
+
+  	/**
+	* set template to body
+	* @function 	    
+	* @private
+	* @params  {list of String} - settings
+	*/
+	$.fn.deckparty.setTemplateToBody = function(settings){       
        		$('body').prepend(deckHTML); 
 		 if(settings.landing === 'true'){
         		 $.fn.deckparty.show(settings);
         	} else $('#'+settings.deck).css('display','none');
     	};
-	
+    	
 	/**
 	* Serialize form from deck
 	* @function 	    
@@ -579,12 +590,6 @@
 	* @params  {list of String} - settings
 	* @returns {String} - Daten
 	*/
-    	$.fn.deckparty.getLocaleStorage = function(key) {
-	    if ('localStorage' in window && window['localStorage'] !== null) {
-	         return localStorage.getItem(key);  
-	    } else {return false;}
-	};
-
 	$.fn.deckparty.serializeForm = function(settings) {
 		var daten = $('#'+settings.deck+'Form').serialize();		
 		return daten;
@@ -597,7 +602,7 @@
 	* @params {String} - name of class 
 	* @params {String} - name of classes
 	*/
-    	$.fn.deckparty.isClass = function(nameOfClass,classNames) {
+  	$.fn.deckparty.isClass = function(nameOfClass,classNames) {
 		$.each( classNames, function( key, value ) {
 			if(nameOfClass === value) return true;
 		});
@@ -609,7 +614,7 @@
 	* @private
 	* @params  {list of String} - settings
 	*/
-    	$.fn.deckparty.getLanguage = function(settings) {		
+	 $.fn.deckparty.getLanguage = function(settings) {		
 	    if ('localStorage' in window && window['localStorage'] !== null) {
 	     //    return localStorage.getItem('dp-lang');  
 	    }
@@ -622,7 +627,7 @@
 	* @private
 	* @params  {String} - name of class
 	*/
-    	$.fn.deckparty.getFieldOfClass = function(classNames) {
+	 $.fn.deckparty.getFieldOfClass = function(classNames) {
 		var cl;
 		var fields = [];
 		$.each( classNames, function( key, value ) {
@@ -658,15 +663,15 @@
 	*/
 	$.fn.deckparty.defaults = {
 	    version     : '0.0.9',
-	    deck  		: '',
-	    anchor		: 'anchor',
-	    deckcss		: 'anchorScreen',
-	    dtr 		: '-',
-	    fields 		: [],
-	    trans 		: [],
+	    deck  	: '',
+	    anchor	: 'anchor',
+	    deckcss	: 'anchorScreen',
+	    dtr 	: '-',
+	    fields 	: [],
+	    trans 	: [],
 	    deck404     : 'nodata',
 	    dus         : 0,
-	    url			: "index.php?ac=AjaxControllerDispatcher&kay=GMPXMJUFHPFTBKBY&cid=",
+	    url		: "index.php?ac=AjaxControllerDispatcher&kay=GMPXMJUFHPFTBKBY&cid=",
 	    seturl      : "index.php?ac=AjaxControllerDispatcher&kay=GMPXMJUFHPFTBKBY&cid=set",
 	    polling     : false,
 	    polltime    : 60000,
@@ -681,9 +686,9 @@
 	    myTransition: false,
 	    init        : true,
 	    xLoaderPoll : false,
-            scrollBottom: false,	    
-            setUpdate   : false,
-            onSetLocale : true,
+	    scrollBottom: false,	    
+      	    setUpdate   : false,
+      	    onSetLocale : true,
 	    fieldEnter  : '',
 	    dataHash    : '',
 	    lang        : 'en',

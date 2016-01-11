@@ -1,0 +1,215 @@
+/*                                                                        *
+ * FLOWStrap                                                              *
+ * --------------------------------------------------------------------   *
+ * Project                   | FLOWStrap grid system                      *
+ * File                      | flowstrap-responsive.css                   *
+ * Version                   | 1.0                                        *
+ * Author                    | Silvan Kolb                                *
+ * Licence                   | Licensed under GPL and MIT                 *
+ * Web Documentation         | http://www.flowstrap.de                    *
+ * --------------------------------------------------------------------   * 
+/**/
+* { -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; }
+
+.container	{ margin: 0 auto; }
+  
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+.container [class*="span-"] {
+  float: left;
+  padding: 3px;
+  position: relative;
+}
+.container .alpha {
+  margin-left: 0;
+  padding-left: 0;
+}
+.container .omega {
+  margin-right: 0;
+  padding-right: 0;
+}
+.container [class*="span-"] p {
+    font-size: 0.9em;
+    padding: 5px 0;  
+}
+
+p, blockquote, article, section {
+    font-family: "Open Sans",sans-serif;
+    line-height: 1.5; -moz-font-feature-settings: inherit;
+    -moz-font-language-override: inherit;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-weight: inherit;
+    vertical-align: baseline;
+}
+
+.row { width: 100%;	border: 0px solid #333; } /* set according to preference*/
+									  
+.col { 
+	display: block;
+	float:left;
+	border: 0px solid #ccc;
+	margin: 0;
+
+/*margin-left: margin: 1% 0 1% 1.6%;1.0416667%; min-height: 1px;*/
+}
+.border56 { border:px solid #444; min-height:1px; background: #ccc; border-left:1px solid #fff; }
+
+.container .mt10 { margin-top: 10px; }
+.mt10 { margin-top: 10px; }
+
+.container .row .pull-left  { padding-left:  0px; }
+.container .row .pull-right { padding-right: 0px; }
+
+/* RESET MARGINS */
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+.container .row .box-inline { padding-top: 0; } 
+
+.container p.lightpink {
+    background: none repeat scroll 0 0 lightpink;
+}
+.container p.lightgreen {
+    background: none repeat scroll 0 0 lightgreen;
+}
+
+/* SELF CLEARING FLOATS - CLEARFIX METHOD */
+.row:after, .col:after, .clr:after { 
+	content: ""; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden; 
+}
+
+p4 {background:#ccc;}
+
+.fs-main {
+    border-left: 1px solid #E5E5E5;
+    padding-left: 50px !important;
+}
+
+/* COLUMN WIDTH ON DISPLAYS +960px */
+@media ( min-width : 20px ) {
+
+	.span-1  { width:  8.3334%; }
+	.span-2  { width: 16.6667%; }
+	.span-3  { width: 25.0000%; }
+	.span-4  { width: 33.3333%; }
+	.span-5  { width: 41.6666%; }
+	.span-6  { width: 50.0000%; }
+	.span-7  { width: 58.3333%; }
+	.span-8  { width: 66.6666%; }
+	.span-9  { width: 75.0000%; }
+	.span-10 { width: 83.3333%; }
+	.span-11 { width: 91.6666%; }
+	.span-12 { width: 100%; }
+}
+
+/* Push */
+.push-10 {  left: 10%; }
+.push-20 {  left: 20%; }
+.push-25 {  left: 25%; }
+.push-33 {  left: 33.3333%; }
+.push-40 {  left: 40%; }
+.push-45 {  left: 45%; }
+.push-50 {  left: 50%; }
+.push-60 {  left: 60%; }
+.push-66 {  left: 66.6666%; }
+.push-70 {  left: 70%; }
+.push-75 {  left: 75%; }
+.push-80 {  left: 80%; }
+.push-90 {  left: 90%; }
+.push-95 {  left: 95%; }
+
+/* Responsive Media Types */
+img, video, canvas { max-width: 100%; height: auto; }
+
+/* Centering Grid */
+.container .centered {
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Centering Grid */
+.centered {
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row111 { max-width: 965px; min-width: 120px;  margin: 0 auto; } 
+.row { margin: 0 auto; } 
+
+@media screen and (min-width: 0px) and (max-width: 120px) {
+ .col, .row {margin: 0;max-width: 100%; min-width: 100%;}
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container [class*="span-"] {
+    padding: 0;
+    margin: 0;   
+    display: inline;
+    float: left;
+    width: 100%;
+  }
+  .container .centerGrid {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .container .alpha {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .container .omega {
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  .hide-desktop {
+    display: block;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* Clearfix */
+.clearfix:after, .clearfix:before,
+.container:after,
+.container:before {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+* html .clearfix, * html
+.container {
+  height: 1px;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}

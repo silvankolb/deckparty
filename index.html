@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Deck Sample</title>
+ 	<meta name="description" content="deckParty">
+  	<meta name="author" content="Silvan Kolb">
+  
+	<meta name="viewport" content="width=device-width, 
+                                  initial-scale=1.0, 
+                                  maximum-scale=1.0, 
+                                  user-scalable=no">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+	<!-- StyleSheet -->
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/flowstrap-responsive.css" />
+	<link rel="stylesheet" href="css/mookup.css" />
+    
+	<!-- Functionality -->
+ 	<script type="text/javascript" src="js/jquery.js"></script> 
+	<script type="text/javascript" src="js/deckparty.js"></script>
+
+<script>
+$(document).ready(function () {
+
+	$().deckparty({
+		deck 	        : 'deckOne',
+		anchor		: 'anchorOne',
+		dtr 	   	: '-',
+		template	: 'templates/deck-profile-01.html',
+		landing		: 'true',
+	});
+	
+	$().deckparty({
+		deck 	        : 'deckTwo',
+		anchor		: 'anchorTwo',
+		dtr 	        : '-',
+		template	: 'templates/deck-profile-02.html',
+	});
+	
+	$().deckparty({
+		deck 	        : 'deckThree',
+		anchor		: 'anchorThree',
+		dtr 	  	: '-',
+		template	: 'templates/deck-profile-03.html',
+	});
+	
+});	
+</script>
+
+
+</head>
+<body>
+
+
+</body></html>
