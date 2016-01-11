@@ -13,11 +13,11 @@
 !(function ( $ ) {
 	
     /**
-	* deckparty Constructor.
-	* @constructor
-	* @params {options} All options for settings
-	* @returns {deckparty} Returns a new instance of deckparty.
-	*/
+    * deckparty Constructor.
+    * @constructor
+    * @params {options} All options for settings
+    * @returns {deckparty} Returns a new instance of deckparty.  
+    */
     $.fn.deckparty = function( options ) {
 
 		var settings = $.extend({}, $.fn.deckparty.defaults, options);
